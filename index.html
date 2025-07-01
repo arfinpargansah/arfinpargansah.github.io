@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arfin Pargansah - Portofolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      /* background lama kamu diganti dengan yang kinclong animasi */
+      background: linear-gradient(270deg, #0d1117, #161b22, #0d1117);
+      background-size: 600% 600%;
+      animation: gradientGlow 15s ease infinite;
+      color: #ffffff; /* fix warna tulisan biar putih */
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      z-index: 0;
+    }
+    /* efek glow cahaya biru lembut yang bergerak */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(88,166,255,0.3), transparent 70%);
+      filter: blur(120px);
+      animation: glowMove 20s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @keyframes gradientGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    @keyframes glowMove {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(20%, 10%); }
+      100% { transform: translate(0,0); }
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #58a6ff;
+      transition: transform 0.5s ease;
+    }
+    .avatar:hover {
+      transform: scale(1.1);
+    }
+    .btn-custom {
+      background-color: #238636;
+      color: white;
+      margin: 5px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .btn-custom:hover {
+      background-color: #2ea043;
+      transform: scale(1.05);
+    }
+    .section-title {
+      margin-top: 80px;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      text-align: center;
+      font-weight: 700;
+      color: #58a6ff;
+    }
+    .card {
+      background: #161b22;
+      border: none;
+      color: #e6edf3;
+      transition: transform 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      text-align: center;
+      color: #8b949e;
+      font-size: 0.9rem;
+    }
+    input, textarea {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      color: white;
+    }
+
+    /* Console macOS style */
+    #console-wrapper {
+      margin-top: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      color: #222;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 1rem;
+      user-select: text;
+    }
+    #console-bar {
+      height: 32px;
+      background: #e0e0e0;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 10px;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+    }
+    .circle {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    }
+    .circle.red { background: #ff5f56; }
+    .circle.yellow { background: #ffbd2e; }
+    .circle.green { background: #27c93f; }
+    #console {
+      padding: 1rem 1.5rem;
+      max-height: 140px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.4;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      text-align: left;  /* kiri rata */
+      color: #222; /* teks console gelap */
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #222;
+      animation: blink 1s infinite;
+      vertical-align: bottom;
+      margin-left: 2px;
+      height: 1.2em;
+    }
+    @keyframes blink {
+      0%, 50% { background-color: #222; }
+      51%, 100% { background-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container text-center py-5" style="color:#fff;">
+    <img src="https://i.ibb.co/4w3xt4VV/F574-D51-D-ED35-4-C09-AB37-7-DD37-A3646-F9.jpg" alt="Arfin Pargansah" class="avatar mb-4"/>
+    <h1>Arfin Pargansah</h1>
+    <p class="lead">Web Automation Builder · Ethical Web Security Lab Creator · Python & VPS Developer</p>
+    <div class="mt-3 mb-4">
+      <a href="mailto:arfinpargansah@icloud.com" class="btn btn-custom">
+        <i class="bi bi-envelope-fill me-1"></i> Email
+      </a>
+      <a href="https://github.com/arfinpargansah" class="btn btn-custom" target="_blank">
+        <i class="bi bi-github me-1"></i> GitHub
+      </a>
+      <a href="https://instagram.com/arfinpargansah" class="btn btn-custom" target="_blank" id="instagram-btn">
+        <i class="bi bi-instagram me-1"></i> Instagram
+      </a>
+    </div>
+
+    <!-- Console ala macOS -->
+    <div id="console-wrapper" aria-label="Console terminal">
+      <div id="console-bar" role="presentation">
+        <div class="circle red" aria-hidden="true"></div>
+        <div class="circle yellow" aria-hidden="true"></div>
+        <div class="circle green" aria-hidden="true"></div>
+      </div>
+      <pre id="console"><span id="console-text"></span><span class="cursor">█</span></pre>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Apa yang Saya Kerjakan</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5><i class="bi bi-gear-fill me-2 text-info"></i>Pengembangan Otomasi Web</h5>
+          <p>Membangun bot GitHub, alat auto-deploy, generator file SEO menggunakan Python + Flask + VPS.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5><i class="bi bi-shield-lock-fill me-2 text-warning"></i>Lab Hacking Etis</h5>
+          <p>Membuat simulasi XSS, LFI, SSTI untuk pelatihan keamanan web yang aman dan legal di server pribadi.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5><i class="bi bi-whatsapp me-2 text-success"></i>Bot WhatsApp</h5>
+          <p>Mengembangkan bot WA pintar untuk layanan pelanggan dengan API, automasi, dan pemicu pintar.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <h5><i class="bi bi-hdd-network-fill me-2 text-primary"></i>Deployment VPS</h5>
+          <p>Domain kustom + otomatisasi GitHub Pages, deployment Flask + systemd, hardening server.</p>
+        </div>
+      </div>
+
+<!-- Tambahan Section AI di tengah -->
+<div class="col-md-8 offset-md-2">
+  <div class="card p-4 h-100 text-center">
+    <h5><i class="bi bi-robot me-2 text-info"></i>Keahlian AI & Otomasi Pintar</h5>
+    <p>Saya berpengalaman menggunakan berbagai teknologi AI, seperti GPT (OpenAI), NLP, computer vision, dan machine learning untuk membangun solusi cerdas yang membantu meningkatkan efisiensi dan pengalaman pengguna.</p>
+  </div>
+</div>
+
+    <h2 class="section-title">Proyek</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5><i class="bi bi-window-stack me-2 text-light"></i>Dashboard GitHub Pages</h5>
+          <p>Alat web untuk mengelola repo, domain, dan upload file ke GitHub Pages via UI.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5><i class="bi bi-file-zip-fill me-2 text-danger"></i>Generator ZIP SEO</h5>
+          <p>Menghasilkan ratusan file HTML siap SEO dengan backend Flask dan logging progres.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5><i class="bi bi-chat-dots-fill me-2 text-success"></i>Bot API WhatsApp</h5>
+          <p>Bot auto-responder untuk bisnis yang terhubung lewat WA Gateway API + Flask.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Hubungi Saya</h2>
+    <form action="mailto:arfinpargansah@icloud.com" method="post" enctype="text/plain" class="row g-3">
+      <div class="col-md-6">
+        <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
+      </div>
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Email Anda" required>
+      </div>
+      <div class="col-12">
+        <textarea name="message" rows="4" class="form-control" placeholder="Pesan Anda" required></textarea>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-custom">Kirim</button>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Arfin Pargansah · Dibuat dengan ❤️ menggunakan Bootstrap
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Animasi kartu muncul perlahan dan naik
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, i) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(30px)";
+        setTimeout(() => {
+          card.style.transition = "all 0.6s ease";
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        }, i * 200);
+      });
+
+      // Efek ketik di console ala macOS dengan perkenalan bahasa Indonesia
+      const consoleText = document.getElementById('console-text');
+      const lines = [
+        "Halo, saya Arfin Pargansah — Pembuat Otomasi Web, Kreator Lab Hacking Etis, dan Developer Python & VPS.",
+        "Saya menciptakan alat pintar seperti bot GitHub, bot WhatsApp, dan lab web aman.",
+        "Silakan jelajahi dan hubungi saya kapan saja!"
+      ];
+      let lineIndex = 0;
+      let charIndex = 0;
+
+      function type() {
+        if (lineIndex >= lines.length) return;
+
+        if (charIndex < lines[lineIndex].length) {
+          consoleText.textContent += lines[lineIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 60);
+        } else {
+          consoleText.textContent += '\n';
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(type, 800);
+        }
+      }
+
+      type();
+    });
+  </script>
+
+</body>
+</html>
