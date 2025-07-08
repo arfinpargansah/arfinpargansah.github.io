@@ -22,7 +22,7 @@ Alat internal untuk melakukan scan kerentanan sistem login dan dashboard, serta 
 
 ## Kontak  
 - Website: [https://metamaster.id](https://metamaster.id)  
-- Email: arfin@metamaster.id  
+- Email: arfinpargansah@icloud.com 
 - GitHub: https://github.com/arfinpargansah  
 - LinkedIn: https://linkedin.com/in/arfinpargansah  
 
