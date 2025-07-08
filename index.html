@@ -147,6 +147,67 @@
     font-weight: bold;
     user-select: none;
   }
+
+  /* Console macOS style */
+  #console-wrapper {
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    color: #222;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 1rem;
+    user-select: text;
+  }
+  #console-bar {
+    height: 32px;
+    background: #e0e0e0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 10px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+  }
+  .circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  }
+  .circle.red { background: #ff5f56; }
+  .circle.yellow { background: #ffbd2e; }
+  .circle.green { background: #27c93f; }
+  #console {
+    padding: 1rem 1.5rem;
+    max-height: 140px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 1.4;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-align: left;
+    color: #222;
+  }
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #222;
+    animation: blink 1s infinite;
+    vertical-align: bottom;
+    margin-left: 2px;
+    height: 1.2em;
+  }
+  @keyframes blink {
+    0%, 50% { background-color: #222; }
+    51%, 100% { background-color: transparent; }
+  }
 </style>
 </head>
 <body>
@@ -175,6 +236,17 @@
   <h1>Arfin Pargansah</h1>
   <p class="lead">AI & Security Engineer • Web3 Automation Expert</p>
   <p>Saya membangun solusi teknologi cerdas dan aman untuk berbagai kebutuhan digital modern, dari backend skalabel hingga sistem automasi canggih.</p>
+
+  <!-- Console macOS style -->
+  <div id="console-wrapper" role="region" aria-label="Terminal console">
+    <div id="console-bar" aria-hidden="true">
+      <div class="circle red"></div>
+      <div class="circle yellow"></div>
+      <div class="circle green"></div>
+    </div>
+    <pre id="console"><span id="console-text"></span><span class="cursor"></span></pre>
+  </div>
+
   <div class="mt-3 mb-4">
     <a href="arfin_pargansah_cv.pdf" download class="btn btn-custom" aria-label="Unduh CV Arfin Pargansah">
       <i class="bi bi-download me-1"></i> Unduh CV
@@ -192,6 +264,8 @@
 </div>
 
 <div class="container">
+  <!-- Other sections unchanged -->
+
   <section id="about" data-aos="fade-up" style="margin-top:60px;">
     <h2 class="section-title">Tentang Saya</h2>
     <p>Saya adalah developer independen yang fokus membangun sistem otomasi berbasis AI, solusi keamanan siber, dan tools Web3 yang scalable. Saya mengembangkan bot otomatis untuk GitHub, WhatsApp, serta lab hacking pribadi untuk riset dan pengujian keamanan. Jelajahi portofolio saya dan hubungi saya untuk kolaborasi.</p>
@@ -291,7 +365,6 @@
       <div class="gallery-item" tabindex="0" role="button" aria-label="Screenshot Bot WhatsApp Auto-Reply">
         <img src="/screenshots/bot-whasapp.png" alt="Screenshot Bot WhatsApp Auto-Reply" loading="lazy" />
       </div>
-      <!-- Tambah item sesuai screenshot kamu -->
     </div>
   </section>
 
@@ -343,6 +416,7 @@
     });
 
     const consoleText = document.getElementById('console-text');
+    const cursor = document.querySelector('.cursor');
     const lines = [
       "Halo, saya Arfin Pargansah — Developer independen yang fokus membangun sistem otomasi berbasis AI, solusi keamanan siber, dan tools Web3 yang scalable.",
       "Saya mengembangkan bot otomatis untuk GitHub, WhatsApp, serta lab hacking pribadi untuk riset dan pengujian keamanan.",
@@ -359,7 +433,7 @@
         charIndex++;
         setTimeout(type, 60);
       } else {
-        consoleText.textContent += ' ';
+        consoleText.textContent += '\n';
         lineIndex++;
         charIndex = 0;
         setTimeout(type, 800);
